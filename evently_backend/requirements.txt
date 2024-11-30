@@ -1,2 +1,49 @@
-Django
-mysqlclient
+# Django Core
+Django==4.2             # Django framework
+djangorestframework==3.14.0  # Django REST Framework for APIs
+django-filter==23.2     # Filtering support for DRF
+
+# Authentication
+django-allauth==0.57.0  # Google Authentication
+djangorestframework-simplejwt==5.2.2  # JWT authentication
+
+# Websockets and Chat
+channels==4.0.0         # Django Channels for WebSockets
+channels-redis==4.0.0   # Redis integration for Django Channels
+
+# Payment Integration
+razorpay==1.3.0         # Razorpay payment gateway
+stripe==5.15.0          # Stripe payment gateway
+
+# Background Tasks
+celery==5.3.4           # Celery for async tasks
+redis==5.0.1            # Redis for Celery broker and WebSocket support
+
+# Notifications
+django-celery-email==3.0.0  # Asynchronous email notifications
+twilio==8.4.0               # SMS notifications
+
+# Chatbots
+rasa==3.5.4              # Rasa for chatbot integration (optional, use if needed)
+
+# Utilities
+python-decouple==3.8    # Environment variable management
+Pillow==10.0.0          # Image processing (e.g., profile pictures, QR codes)
+qrcode==7.3.1           # QR code generation for tickets
+django-cors-headers==4.0.0  # Enable CORS for frontend-backend communication
+django-rest-framework-json-api==5.0.0  # JSON:API support for DRF
+
+# Database
+mysqlclient==2.1.1      # MySQL database support
+django-environ==0.10.0  # For environment variables in settings
+
+# Testing and Debugging
+pytest-django==5.0.0    # Testing framework for Django
+pytest==7.4.2           # Python testing framework
+coverage==7.3.1         # Code coverage tool
+django-debug-toolbar==4.2.1  # Debugging tool for development
+
+# Deployment
+gunicorn==21.3.0        # WSGI HTTP server for deployment
+whitenoise==6.5.0       # Serve static files in production
+psycopg2-binary==2.9.8  # PostgreSQL database (if switching from MySQL)
