@@ -1,0 +1,51 @@
+version: "3.9"
+
+services:
+  frontend:
+    build:
+      context: ./evenly
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./evently:/app
+    command: "npm run dev" 
+    depends_on:
+      - backend
+    environment:
+      - NEXT_PUBLIC_BACKEND_URL=http://localhost:8000 # Adjust as needed
+
+  backend:
+    build:
+      context: ./evently_backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./evently_backend:/app
+    command: "python manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      - db
+    environment:
+      - DJANGO_DEBUG=True
+      - DJANGO_ALLOWED_HOSTS=localhost
+      - DB_HOST=db
+      - DB_NAME=event_db
+      - DB_USER=user
+      - DB_PASSWORD=pass
+
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: event_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
