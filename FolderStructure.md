@@ -4,7 +4,7 @@ Here I have shown the well-organized Django backend folder structure for your Ev
 ---
 
 Folder Structure
-
+```
 backend/
 │
 ├── event_management/        # Django Project Directory
@@ -105,6 +105,7 @@ backend/
 │
 └── requirements.txt         # Python dependencies
 
+```
 
 ---
 
